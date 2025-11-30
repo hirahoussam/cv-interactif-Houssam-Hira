@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Houssam Hira | CV</title>
+    <link rel="icon" type="image/png" href="/img/profile.jpeg">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cyber-green': '#00ff41',
+                        'dark-bg': '#0a0a0a',
+                        'dark-card': 'rgba(25, 25, 25, 0.95)',
+                        'dark-nav': 'rgba(10, 10, 10, 0.98)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Roboto Mono', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        /* These use @apply, so they must stay here for the Tailwind CDN to see them */
+        .skill-badge {
+            @apply inline-block px-3 py-1 text-xs font-mono bg-gray-800 text-cyber-green rounded-full transition duration-300 hover:bg-cyber-green hover:text-dark-bg cursor-pointer;
+        }
+        .section-card {
+            @apply bg-dark-card rounded-xl p-6 shadow-2xl border border-gray-800/50 backdrop-blur-sm mb-8;
+        }
+        .nav-link {
+            @apply text-gray-400 hover:text-cyber-green transition duration-300 px-3 py-2 rounded-md text-sm font-medium;
+        }
+        .nav-link.active {
+            @apply text-white bg-cyber-green/20;
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <canvas id="binary-canvas"></canvas>
+
+    <nav id="main-nav" class="fixed top-0 left-0 w-full z-20 bg-dark-nav shadow-lg border-b border-cyber-green/30 backdrop-blur-md">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#profile" class="text-xl font-mono font-bold text-cyber-green tracking-widest hover:text-white transition duration-300">
+                    HIRA.DEV
+                </a>
+                <div class="flex space-x-4">
+    <a href="#profile" class="nav-link">Profile</a>
+    <a href="#skills" class="nav-link">Skills & Language</a>
+    <a href="#learning" class="nav-link">Self-Learning</a> 
+    
+    <a href="#projects" class="nav-link">Projects</a>
+    <a href="#education" class="nav-link">Education</a>
+    <a href="#contact" class="nav-link">Contact</a>
+</div>
+            </div>
+        </div>
+    </nav>
+    
+    <div id="app" class="relative z-10 flex justify-center py-4">
+        <div class="w-full max-w-4xl px-4">
+
+            <div id="profile-view" class="page-view">
+                <header class="section-card p-6 sm:p-10">
+                    <div class="flex flex-col sm:flex-row items-center sm:items-start">
+                        <img src="/img/profile.jpeg" alt="Profile" class="w-32 h-32 object-cover rounded-full border-4 border-cyber-green shadow-lg transition duration-300 hover:border-gray-500" onerror="this.onerror=null; this.src='https://placehold.co/128x128/111111/00ff41?text=Houssam%0AHira'">
+                       <div class="mt-6 sm:mt-0 sm:ml-8 text-center sm:text-left">
+                            <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">HOUSSAM HIRA</h1>
+                            
+                            <p class="text-xl sm:text-2xl font-mono text-cyber-green mt-2">
+                                Computer Science Student (IAP) at FSSM
+                            </p>
+                            
+                            <p class="text-gray-400 mt-3 text-sm">
+                               Future Cybersecurity Analyst | Exploring the world of Secure Coding.
+                            </p>
+                        </div>
+                    </div>
+                </header>
+
+                <section class="section-card">
+                    <h2 class="text-2xl font-bold text-white mb-4 border-b pb-2 border-cyber-green/50 flex justify-between items-center">
+                        <span>Profile Summary</span>
+                       
+                        </button>
+                    </h2>
+                  <p id="profile-summary-text" class="text-gray-300 leading-relaxed">
+    I am an <strong>19-year-old</strong> Computer Science student at FSSM (Cadi Ayyad University), originally from <strong>Boumalne Dades</strong>. My journey from the High Atlas to Marrakesh is driven by a singular obsession: mastering the digital landscape. 
+    <br><br>
+    Currently mastering the fundamentals of algorithms (C) and automation (Python) while leveraging my linguistic versatility (French C1, English B2, Native Tamazight/Arabic). I am building a rigorous mathematical and technical foundation today to become the Cybersecurity Analyst of tomorrow.
+</p>
+                </section>
+            </div>
+
+            <div id="skills-view" class="page-view hidden">
+                <section class="section-card">
+                    <h2 class="text-3xl font-bold text-white mb-6 border-b pb-3 border-cyber-green/50">Skills & Languages</h2>
+                    <p class="text-gray-400 mb-6">Currently building my foundation in low-level programming and web technologies while pursuing my degree.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold text-cyber-green mb-4 flex items-center">
+                                <span class="mr-2">&lt;/&gt;</span> Programming
+                            </h3>
+                            <div class="flex flex-col space-y-3">
+                                
+                                <div class="bg-gray-800/50 p-3 rounded-lg border border-gray-700 hover:border-cyber-green transition duration-300">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="font-mono text-white">C Language</span>
+                                        <span class="text-xs font-bold text-cyber-green bg-cyber-green/10 px-2 py-0.5 rounded">B2 • Advanced</span>
+                                    </div>
+                                    <div class="w-full bg-gray-700 h-1.5 rounded-full mt-1">
+                                        <div class="bg-cyber-green h-1.5 rounded-full" style="width: 75%"></div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-800/50 p-3 rounded-lg border border-gray-700 hover:border-cyber-green transition duration-300">
+    <div class="flex justify-between items-center mb-1">
+        <span class="font-mono text-white">Python</span>
+        <span class="text-xs font-bold text-blue-400 bg-blue-400/10 px-2 py-0.5 rounded">B2 • Advanced</span>
+    </div>
+    <div class="w-full bg-gray-700 h-1.5 rounded-full mt-1">
+        <div class="bg-blue-400 h-1.5 rounded-full" style="width: 75%"></div>
+    </div>
+</div>
+
+                                <div class="bg-gray-800/50 p-3 rounded-lg border border-gray-700 hover:border-cyber-green transition duration-300">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="font-mono text-white">HTML & CSS</span>
+                                        <span class="text-xs font-bold text-purple-400 bg-purple-400/10 px-2 py-0.5 rounded">B1 • Intermediate</span>
+                                    </div>
+                                    <div class="w-full bg-gray-700 h-1.5 rounded-full mt-1">
+                                        <div class="bg-purple-400 h-1.5 rounded-full" style="width: 50%"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold text-cyber-green mb-4 flex items-center">
+                                <span class="mr-2">🗣</span> Languages
+                            </h3>
+                            <div class="space-y-3">
+                                
+                                <div class="bg-gray-800/50 p-3 rounded-lg border border-gray-700">
+                                    <span class="block font-mono text-white text-lg">Arabic & Tamazight</span>
+                                    <span class="text-sm text-gray-400">Native / Maternal</span>
+                                </div>
+
+                                <div class="bg-gray-800/50 p-3 rounded-lg border border-gray-700">
+                                    <div class="flex justify-between items-end">
+                                        <span class="font-mono text-white text-lg">French</span>
+                                        <span class="text-cyber-green font-bold">C1</span>
+                                    </div>
+                                    <span class="text-sm text-gray-400">Advanced / Professional Proficiency</span>
+                                </div>
+
+                                <div class="bg-gray-800/50 p-3 rounded-lg border border-gray-700">
+                                    <div class="flex justify-between items-end">
+                                        <span class="font-mono text-white text-lg">English</span>
+                                        <span class="text-blue-400 font-bold">B2</span>
+                                    </div>
+                                    <span class="text-sm text-gray-400">Upper Intermediate</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                </section>
+            </div>
+
+            <div id="projects-view" class="page-view hidden">
+                <section class="section-card">
+                    <h2 class="text-3xl font-bold text-white mb-6 border-b pb-3 border-cyber-green/50">Key Projects & Demonstrations</h2>
+                    <div class="space-y-6">
+
+    <div class="project-item">
+        <h3 class="text-lg font-semibold text-cyber-green">Python Slot Machine 🎰</h3>
+        <p class="text-sm text-gray-500 font-mono mt-1">
+            Python 3, Random Module, CLI | 
+            <a href="https://github.com/hirahoussam/python-slot-machine" target="_blank" class="text-blue-400 hover:text-blue-300">GitHub Link</a>
+        </p>
+        <p class="text-gray-300 mt-2">
+            A command-line casino simulation featuring betting logic, randomized symbol matching, and payout calculations. 
+            Players start with <strong>1,000 MAD</strong> and must manage their bankroll against weighted probabilities.
+        </p>
+    </div>
+
+    <div class="project-item">
+        <h3 class="text-lg font-semibold text-cyber-green">Rock Paper Scissors Game ✂️</h3>
+        <p class="text-sm text-gray-500 font-mono mt-1">
+            Python, Conditional Logic | 
+            <a href="https://github.com/hirahoussam/rock-paper-scissors-GAME" target="_blank" class="text-blue-400 hover:text-blue-300">GitHub Link</a>
+        </p>
+        <p class="text-gray-300 mt-2">
+            An interactive command-line implementation of the classic hand game. Features robust input validation, 
+            randomized computer moves, and instant win/loss logic processing.
+        </p>
+    </div>
+
+    <div class="project-item">
+        <h3 class="text-lg font-semibold text-cyber-green">Pokemon API Finder 🔍⚡</h3>
+        <p class="text-sm text-gray-500 font-mono mt-1">
+            Python, Requests, JSON, PokéAPI | 
+            <a href="https://github.com/hirahoussam/pokemon-api-finder" target="_blank" class="text-blue-400 hover:text-blue-300">GitHub Link</a>
+        </p>
+        <p class="text-gray-300 mt-2">
+            A dynamic data-fetching tool that connects to the public PokéAPI. Users can query any Pokémon by name to retrieve real-time stats 
+            like ID, height, and weight, demonstrating proficiency with RESTful API integration and JSON parsing.
+        </p>
+    </div>
+
+</div>
+                </section>
+            </div>
+
+            <div id="education-view" class="page-view hidden">
+                <section class="section-card">
+                    <h2 class="text-3xl font-bold text-white mb-6 border-b pb-3 border-cyber-green/50">Academic Background</h2>
+                    
+                    <div class="border-l-2 border-cyber-green/50 pl-6 space-y-10">
+                        
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-2 w-4 h-4 rounded-full bg-cyber-green border-4 border-dark-card"></div>
+                            
+                            <div class="flex flex-col sm:flex-row justify-between sm:items-start mb-2">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white">Licence in Computer Science (SMI)</h3>
+                                    <p class="text-cyber-green font-mono text-lg">Cadi Ayyad University - FSSM</p>
+                                </div>
+                                <span class="mt-2 sm:mt-0 text-xs font-mono border border-cyber-green px-4 py-2 rounded-full text-gray-400 bg-gray-800/50">
+                                    Marrakesh
+                                </span>
+                            </div>
+                            
+                            <p class="text-sm text-gray-400 mb-4 font-mono">
+                                <span class="text-white">Current Status:</span> 2nd Year (DEUG) • Common Core
+                            </p>
+                            
+                            <div class="bg-gray-800/30 p-4 rounded-lg border border-gray-700/50">
+                                <ul class="list-disc list-inside text-sm text-gray-300 space-y-2">
+                                    <li>
+                                        <span class="text-gray-400 font-semibold">Core Curriculum:</span> 
+                                        Advanced Algorithms, C Language, Algebra, and Analysis.
+                                    </li>
+                                    <li>
+                                        <span class="text-gray-400 font-semibold">Goal:</span> 
+                                        Specializing in the <strong>Cybersecurity & Networks</strong> track next year (S5/S6).
+                                    </li>
+                                    <li>
+                                        <span class="text-gray-400 font-semibold">Self-Development:</span> 
+                                        Active member of university IT clubs and self-studying Linux & Network Protocols.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-2 w-4 h-4 rounded-full bg-gray-600 border-4 border-dark-card"></div>
+                            
+                            <div class="flex flex-col sm:flex-row justify-between sm:items-start mb-1">
+                                <h3 class="text-xl font-bold text-white">Baccalauréat - Physical Sciences</h3>
+                                 <span class="mt-2 sm:mt-0 text-xs font-mono border border-cyber-green px-4 py-2 rounded-full text-gray-400 bg-gray-800/50">
+                                    Boumalne Dades
+                                </span>
+                               </div>
+                            
+                            <p class="text-sm text-gray-500 font-mono mb-2">
+                                Option: French Biof (Section Internationale)
+                            </p>
+                            
+                            <p class="text-sm text-gray-400">
+                                Graduated with <span class="text-cyber-green">Honors</span>Bien. Solid foundation in Physics and Mathematics which facilitated my transition to Computer Science.
+                            </p>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+            <div id="learning-view" class="page-view hidden">
+                <section class="section-card">
+                    <h2 class="text-3xl font-bold text-white mb-6 border-b pb-3 border-cyber-green/50">Independent Learning</h2>
+                    <p class="text-gray-400 mb-6">Education doesn't stop at the university door. Here is how I am actively preparing for my Cybersecurity specialization.</p>
+                    
+                    <div class="space-y-6">
+                        
+                        <div class="bg-gray-800/40 p-5 rounded-xl border-l-4 border-cyber-green transition hover:bg-gray-800/60">
+                           <div class="space-y-6">
+    
+    <div class="bg-gray-800/40 p-5 rounded-xl border-l-4 border-cyber-green transition hover:bg-gray-800/60">
+        <h3 class="text-lg font-bold text-white flex items-center">
+            <span class="mr-2">🧪</span> Personal Home Lab
+        </h3>
+        <p class="text-sm text-gray-400 mt-1 mb-2 font-mono">VirtualBox, Kali Linux, Ubuntu Server</p>
+        <p class="text-gray-300 text-sm">
+            I built a virtualized environment to safely experiment with Linux commands and network configurations. Currently learning how to harden a Linux server and exploring basic network scanning with Nmap.
+        </p>
+    </div>
+
+   <div class="bg-gray-800/40 p-5 rounded-xl border-l-4 border-blue-500 transition hover:bg-gray-800/60">
+    <h3 class="text-lg font-bold text-white flex items-center">
+        <span class="mr-2">🎓</span> Academic & Fundamentals
+    </h3>
+    <p class="text-sm text-gray-400 mt-1 mb-2 font-mono">Computer Science & Self-Study</p>
+    <p class="text-gray-300 text-sm">
+        As a passionate student, I am dedicating my free time to bridging the gap between theory and practice. 
+        I am currently strengthening my understanding of <strong>Operating Systems</strong> and <strong>Networking</strong> concepts while applying what I learn in class to my personal coding projects.
+    </p>
+</div>
+
+    <div class="bg-gray-800/40 p-5 rounded-xl border-l-4 border-purple-500 transition hover:bg-gray-800/60">
+        <h3 class="text-lg font-bold text-white flex items-center">
+            <span class="mr-2">📜</span> Professional Certifications
+        </h3>
+        <p class="text-sm text-gray-400 mt-1 mb-2 font-mono">Online Learning Platforms</p>
+        <p class="text-gray-300 text-sm">
+            Actively pursuing recognized certifications on various e-learning platforms. My goal is to <strong>enhance my professional profile</strong>, validate my technical skills, and stay updated with the latest cybersecurity standards.
+        </p>
+    </div>
+
+</div>
+                </section>
+            </div>
+            <div id="contact-view" class="page-view hidden">
+                 <section class="section-card">
+                    <h2 class="text-3xl font-bold text-white mb-6 border-b pb-3 border-cyber-green/50">Connect with Houssam</h2>
+                    <div class="space-y-4 text-lg">
+                        <p>I am always open to discussing new low-level security challenges and networking concepts. Feel free to connect via the platforms below.</p>
+                        <ul class="space-y-3 text-lg">
+                            <li class="flex items-center">
+                                <span class="font-mono text-cyber-green mr-4 text-2xl">@</span>
+                                <div><span class="font-semibold">Email:</span> <a href="mailto:h.hira5584@uca.ac.ma" class="text-gray-300 hover:text-cyber-green transition">h.hira5584@uca.ac.ma</a></div>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-cyber-green mr-4 font-bold text-xl">in</span>
+                                <div><span class="font-semibold">LinkedIn:</span> <a href="https://www.linkedin.com/in/houssam-hira-0b342a36b?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" class="text-gray-300 hover:text-cyber-green transition">/in/houssamhira</a></div>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-cyber-green mr-4 font-bold text-xl">git</span>
+                                <div><span class="font-semibold">GitHub:</span> <a href="https://github.com/hirahoussam" target="_blank" class="text-gray-300 hover:text-cyber-green transition">/Houssam Hira</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <footer class="mt-12 mb-8 text-center text-xs text-gray-600">
+                <p>&copy; 2025 Houssam Hira.</p>
+            </footer>
+
+        </div>
+    </div>
+
+    <div id="llm-loading-indicator" class="fixed inset-0 bg-dark-bg/80 backdrop-blur-sm flex justify-center items-center hidden">
+        <div class="flex flex-col items-center p-6 bg-dark-card border border-cyber-green/50 rounded-lg shadow-xl">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-cyber-green"></div>
+            <p class="mt-4 text-cyber-green font-mono">Processing Request...</p>
+        </div>
+    </div>
+
+    <div id="skill-explanation-modal" class="fixed inset-0 bg-dark-bg/80 backdrop-blur-sm flex justify-center items-center hidden">
+        <div class="bg-dark-card rounded-xl p-8 max-w-lg w-full border border-cyber-green/50 shadow-2xl">
+            <h3 id="modal-title" class="text-2xl font-bold text-cyber-green mb-4">Skill Deep Dive: [Skill Name]</h3>
+            <p id="modal-content" class="text-gray-300 leading-relaxed font-mono text-sm"></p>
+            <button onclick="document.getElementById('skill-explanation-modal').classList.add('hidden')" class="mt-6 w-full py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition duration-300">Close</button>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+
+</body>
+</html>
