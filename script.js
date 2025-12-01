@@ -256,4 +256,36 @@ document.addEventListener('click', function(e) {
         const text = document.getElementById('profile-summary-text').innerText;
         window.textToSpeech(text, btn);
     }
+
+});
+// --- MOBILE MENU LOGIC ---
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const links = document.querySelectorAll('.mobile-link');
+
+    // Toggle menu visibility
+    btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+    });
+
+    // Close menu when a link is clicked
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.add('hidden');
+            
+            // Allow smooth scroll to finish before navigation logic updates
+            const hash = link.getAttribute('href');
+            setTimeout(() => {
+                navigate(hash);
+            }, 100);
+        });
+    });
+
+    // Close menu if clicking outside of it
+    document.addEventListener('click', (e) => {
+        if (!menu.contains(e.target) && !btn.contains(e.target)) {
+            menu.classList.add('hidden');
+        }
+    });
 });
